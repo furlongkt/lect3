@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="month"> 
+	    <a href="#" id="prev"><aside class="prev">&#10094;</aside></a>
+	    <a href="#" id="next"><aside class="next">&#10095;</aside></a>
+	    <span class="cal-title">
+	      {{ monthToString month }} {{{ year }}}
+	    </span>
+	</div>
+
+	<div class="calendar weekdays">
+	  <div class="weekday-header">Sun</div>
+	  <div class="weekday-header">Mon</div>
+	  <div class="weekday-header">Tues</div>
+	  <div class="weekday-header">Wed</div>
+	  <div class="weekday-header">Thurs</div>
+	  <div class="weekday-header">Fri</div>
+	  <div class="weekday-header">Sat</div>
+	</div>
+
+	<div class="calendar"> 
+	  {{#each days}}
+		  		<div class="day {{#unless this }} null-value {{/unless}}">
+		  		<aside class="date-label"><div class="dayOfWeek">{{ getDayOfWeek ../month this ../year }}</div>{{this}}</aside>
+		  		<ul>
+		  		<li class="event">Testing a really long Event description <aside><a title="Edit" class="fa fa-pencil"></a> <a title="Delete" class="fa fa-close"></a></aside></li>
+		  		<li class="event">Test Event <aside><a title="Edit" class="fa fa-pencil"></a> <a title="Delete" class="fa fa-close"></a></aside></li>
+		  		<li class="event">Test Event <aside><a title="Edit" class="fa fa-pencil"></a> <a title="Delete" class="fa fa-close"></a></aside></li>
+		  		<li class="event">Test Event <aside><a title="Edit" class="fa fa-pencil"></a> <a title="Delete" class="fa fa-close"></a></aside></li>
+		  		</ul>
+		  		</div>
+	  {{/each}}
+	  </div>
+</div>
