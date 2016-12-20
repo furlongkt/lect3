@@ -1,20 +1,20 @@
 <div class="row">
 	<div class="dateAndEvents"
-		<h3>Events For {{weekday}}, {{monthToString month}} {{date}}</h3>
+		<h3>Events For {{getDayOfWeek month day year}}, {{monthToString month}} {{day}}</h3>
 		<hr/>
 		<div class="events">
-		{{#each events}}
 			<ul>
+			{{#each events}}
 				<li> Event {{this}} </li>
-			</ul>
 			{{/each}}
+			</ul>
 		</div>
 	</div>
 
 	<div class="dateAndInfo">
 		<aside>
-			<p>This {{weekday}} is the {{dayOfTheYear date}}th day of the year.</p>
-			<p>There are {{daysLeftInYear date}}s left in {{getYear date}}</p>
+			<p>This {{weekday}} is the {{dayOfTheYear month day year}}th day of the year.</p>
+			<p>There are {{daysLeftInYear month day year}}s left in {{year}}</p>
 		</aside>
 	</div>
 
