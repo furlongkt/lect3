@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+var expressValidator = require('express-validator');
 const app = express();
 const static = express.static(__dirname + '/public');
 
@@ -85,7 +86,23 @@ app.use("/public", static);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(rewriteUnsupportedBrowserMethods);
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
 
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 app.engine('handlebars', handlebarsInstance.engine);
 app.set('view engine', 'handlebars');
 
