@@ -1,6 +1,7 @@
 <div class="row">
+	<div class="dateAndEvents">
 		<h3>Events For {{getDayOfWeek month day year}}, {{monthToString month}} {{day}}</h3>
-		<hr/>
+		</hr>
 		<div class="events">
 			<ul>
 			{{#each events}}
@@ -14,6 +15,7 @@
 	<div class="dateAndInfo">
 		<aside>
 			<p>This {{getDayOfWeek month day year}} is the {{dayOfTheYear month day year}}th day of the year.</p>
+			<p>There are {{daysLeftInYear month day year}} day(s) left in {{year}}</p>
 		</aside>
 	</div>
 
