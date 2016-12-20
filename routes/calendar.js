@@ -10,15 +10,15 @@ const VIEW = {
 var currentView = VIEW.MONTH;
 
 router.get("/view/:month/:year", (req, res) => {
-    if(currentView==VIEW.MONTH){
-        var daysOfMonth = bookData.getDaysOfMonth(req.params.month,req.params.year);
-        console.log("Month: " + req.params.month);
-        res.render("monthly", {month: req.params.month, year: req.params.year, days: daysOfMonth});
-    }else if(currentView==VIEW.WEEK){
-        res.render("weekly",{month: req.params.month, year: req.params.year});
-    }else{
-        res.render("daily",{month: req.params.month, year: req.params.year});
-    }
+    var daysOfMonth = bookData.getDaysOfMonth(req.params.month,req.params.year);
+    console.log("Monthly View: " + req.params.month);
+    res.render("monthly", {month: req.params.month, year: req.params.year, days: daysOfMonth});
+});
+
+router.get("/view/:month/:year/:day", (req, res) => {
+    var daysOfMonth = bookData.getDaysOfMonth(req.params.month,req.params.year);
+    console.log("Daily View: " + req.params.month);
+    res.render("daily", {month: req.params.month, year: req.params.year, day: req.params.day});
 });
 
 router.get("/:id", (req, res) => {
