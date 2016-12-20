@@ -39,6 +39,8 @@ const handlebarsInstance = exphbs.create({
             var options = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             return options[date%7];
         }
+
+        //TODO create function that gets day of the year (given a date returns its day of the year)
     },
     partialsDir: [
         'views/partials/'

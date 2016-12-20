@@ -1,3 +1,31 @@
 <div class="row">
-	<h3>Daily View</h3>
+	<div class="dateAndEvents"
+		<h3>Events For {{weekday}}, {{monthToString month}} {{date}}</h3>
+		<hr/>
+		<div class="events">
+		{{#each events}}
+			<ul>
+				<li> Event {{this}} </li>
+			</ul>
+			{{/each}}
+		</div>
+	</div>
+
+	<div class="dateAndInfo">
+		<aside>
+			<p>This {{weekday}} is the {{dayOfTheYear date}}th day of the year.</p>
+			<p>There are {{daysLeftInYear date}}s left in {{getYear date}}</p>
+		</aside>
+	</div>
+
+	<div class="nearbyDays">
+		<div class="leftArrow"><a href="LINK TO PREVIOUS 5 DAYS"><img src="LINK TO LEFT ARROW"></a></div>
+		<div class="dates">
+			{{#each nearbyDates}}
+				<div class="date"> {{month}} / {{day}} </div>
+			{{/each}}
+		</dates>
+		<div class="rightArrow"><a href="LINK TO NEXT 5 DAYS"><img src="LINK TO RIGHT ARROW"></a></div>
+	</div>
+
 </div>
