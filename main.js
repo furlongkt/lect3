@@ -52,7 +52,7 @@ const handlebarsInstance = exphbs.create({
 
         daysLeftInYear: function(month,day,year){
             var now = new Date(year,month,day);
-            var start = new Date(year, 11, 30);
+            var start = new Date(year, 11, 31);
             var diff = start-now;
             var oneDay = 1000 * 60 * 60 * 24;
             var day = Math.floor(diff / oneDay);
