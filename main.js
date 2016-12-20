@@ -38,7 +38,26 @@ const handlebarsInstance = exphbs.create({
             var date = new Date(year,month,day).getDay();
             var options = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             return options[date%7];
+        },
+
+        dayOfTheYear: function(month,day,year){
+            var now = new Date(year,month,day);
+            var start = new Date(year, 0, 0);
+            var diff = now - start;
+            var oneDay = 1000 * 60 * 60 * 24;
+            var day = Math.floor(diff / oneDay);
+            return day;
+        },
+
+        daysLeftInYear: function(month,day,year){
+            var now = new Date(year,month,day);
+            var start = new Date(year, 11, 30);
+            var diff = start-now;
+            var oneDay = 1000 * 60 * 60 * 24;
+            var day = Math.floor(diff / oneDay);
+            return day;
         }
+        
 
         //TODO create function that gets day of the year (given a date returns its day of the year)
     },
