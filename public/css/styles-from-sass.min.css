@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box; }
+
+body, html {
+  background: #FEFEFE;
+  color: #333;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 20pt; }
+
+select {
+  padding: 8px 20px;
+  border: solid 1px #333333;
+  border-radius: 4px;
+  background-color: white; }
+
+a#next, a#prev {
+  color: #266B6B; }
+
+ul {
+  list-style-type: none;
+  margin: 0px; }
+
+.btn {
+  box-shadow: inset 0px 1px 3px 0px #3dc21b;
+  background-color: #74B974;
+  border-radius: 5px;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 11px 23px;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #2f6627; }
+
+.btn:hover {
+  background-color: #98CC98; }
+
+.btn:active {
+  position: relative;
+  top: 1px; }
+
+.calendar {
+  margin-bottom: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+
+.weekday-header {
+  display: none;
+  box-sizing: border-box;
+  -ms-flex-preferred-size: 14%;
+      flex-basis: 14%;
+  background-color: #333333;
+  color: white;
+  padding: 5px;
+  text-align: center; }
+
+.weekdays {
+  margin-bottom: 0px; }
+
+.day {
+  box-sizing: border-box;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  min-height: 100px;
+  background-color: #CCCCCC;
+  padding: 2px;
+  margin-bottom: 10px; }
+
+.day ul {
+  list-style-type: none;
+  margin: 0px;
+  -webkit-padding-start: 0px;
+  padding: 5px; }
+
+.day .date-label {
+  text-align: right;
+  padding: 2px;
+  width: 100%; }
+
+.event {
+  display: inline-block;
+  margin: 5px 0px;
+  width: 100%;
+  background-color: #9AB6B6;
+  padding: 2px;
+  text-align: center;
+  font-size: medium;
+  border: 1px solid #266B6B;
+  color: #266B6B; }
+
+.event > aside {
+  float: right; }
+
+.event > aside > a {
+  padding-right: 3px; }
+
+.event > aside > a:hover, a#next:hover, a#prev:hover {
+  color: #BDD2D2; }
+
+.month {
+  width: 100%;
+  background-color: #74B974;
+  color: white;
+  padding: 15px;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center; }
+
+/* Previous button inside month header */
+.month .prev {
+  float: left; }
+
+/* Next button */
+.month .next {
+  float: right; }
+
+.null-value {
+  display: none; }
+
+.dayOfWeek {
+  display: block; }
+
+@media (min-width: 401px) {
+  .day {
+    -ms-flex-preferred-size: 14%;
+        flex-basis: 14%; }
+  .dayOfWeek {
+    display: none; }
+  .weekday-header, .null-value {
+    display: block; } }
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */ }
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */ }
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer; }
+
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white; }
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px; }
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white; }
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s; }
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }

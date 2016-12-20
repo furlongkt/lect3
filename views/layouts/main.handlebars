@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="/public/css/styles-from-sass.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/public/js/calendar.js"></script>
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="the-heading">A CrAzY Calendar</h1>
+        <h2>by Kevin Furlong</h2>
+        <section class="row" id="description">
+            <p>Hello! Welcome to the CrAzY Calendar! Here you can add, edit, and remove events on the calendar. You can also display the calendar in two CrAzY views: Monthly View or the Weekly View</p>
+            <form id="create-form">
+                <select name="month" id="selectedMonth">
+                    <option value="0" {{#if (isEqual month 0)}}selected="selected" {{/if}}>January</option>
+                    <option value="1" {{#if (isEqual month 1)}}selected="selected" {{/if}}>February</option>
+                    <option value="2" {{#if (isEqual month 2)}}selected="selected" {{/if}}>March</option>
+                    <option value="3" {{#if (isEqual month 3)}}selected="selected" {{/if}}>April</option>
+                    <option value="4" {{#if (isEqual month 4)}}selected="selected" {{/if}}>May</option>
+                    <option value="5" {{#if (isEqual month 5)}}selected="selected" {{/if}}>June</option>
+                    <option value="6" {{#if (isEqual month 6)}}selected="selected" {{/if}}>July</option>
+                    <option value="7" {{#if (isEqual month 7)}}selected="selected" {{/if}}>August</option>
+                    <option value="8" {{#if (isEqual month 8)}}selected="selected" {{/if}}>September</option>
+                    <option value="9" {{#if (isEqual month 9)}}selected="selected" {{/if}}>October</option>
+                    <option value="10" {{#if (isEqual month 10)}}selected="selected" {{/if}}>November</option>
+                    <option value="11" {{#if (isEqual month 11)}}selected="selected" {{/if}}>December</option>
+                </select>
+                <select name="year" id="selectedYear">
+                    <option value="2014" {{#if (isEqual year 2014)}}selected="selected" {{/if}}>2014</option>
+                    <option value="2015" {{#if (isEqual year 2015)}}selected="selected" {{/if}}>2015</option>
+                    <option value="2016" {{#if (isEqual year 2016)}}selected="selected" {{/if}}>2016</option>
+                    <option value="2017" {{#if (isEqual year 2017)}}selected="selected" {{/if}}>2017</option>
+                    <option value="2018" {{#if (isEqual year 2018)}}selected="selected" {{/if}}>2018</option>
+                    <option value="2019" {{#if (isEqual year 2019)}}selected="selected" {{/if}}>2019</option>
+                    <option value="2020" {{#if (isEqual year 2020)}}selected="selected" {{/if}}>2020</option>
+                </select>
+                <button onClick="javascript: showModal();" id="myBtn" class="btn"><i class="fa fa-plus" style="padding-right: 7px;"></i> Create Event</button>
+            </form>
+            
+        </section>
+        {{> create_event}}
+        <section>
+            <main class="col-sm-12 col-md-8">
+                <h2>{{ pageTitle }}</h2>
+                {{{body}}}
+            </main>
+        </section>
+    </div>
+</body>
+
+</html>
