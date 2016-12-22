@@ -75,6 +75,17 @@ const handlebarsInstance = exphbs.create({
             }else{
                 return [];
             }
+        },
+
+        repeat: function(n, block){
+            var accum = '';
+            for(var i = 0; i < n; ++i)
+                accum += block.fn(i);
+            return accum;
+        },
+
+        numDays: function(month,year){
+            return new Date(year, month+1, 0).getDate();
         }
     },
     partialsDir: [

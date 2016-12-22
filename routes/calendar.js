@@ -11,6 +11,31 @@ const VIEW = {
   DAY : {value: 2, name: "daily"}
 };
 var currentView = VIEW.MONTH;
+
+function getDaysOfMonth(month,year){
+        var numDays = new Date(year, month+1, 0).getDate();
+        var firstDay = new Date(year,month,1);
+        var lastDay = new Date(year,month,numDays);
+        console.log(month +"/"+year +" - "+ firstDay);
+        var ret = new Array();
+        var paddedCount = firstDay.getDay();
+
+        while(paddedCount>0){
+            ret.push(null);
+            paddedCount--;
+        }
+        
+        for (i = 1; i <= numDays; i++) { 
+            ret.push(i);
+        }
+
+        var paddedCount = lastDay.getDay();
+        while(paddedCount<6){
+            ret.push(null);
+            paddedCount++;
+        }
+        return ret;
+    }
  
 router.get("/event", (req, res) => {
     //objects = db.events.find();
@@ -91,23 +116,14 @@ router.delete("/event/:id", (req, res) => {
   });
 
 router.get("/view/:month/:year", (req, res) => {
-    var daysOfMonth = bookData.getDaysOfMonth(req.params.month,req.params.year);
+    var daysOfMonth = getDaysOfMonth(req.params.month,req.params.year);
     console.log("Monthly View: " + req.params.month);
     res.render("monthly", {month: req.params.month, year: req.params.year, days: daysOfMonth});
 });
 
 router.get("/view/:month/:year/:day", (req, res) => {
-    var daysOfMonth = bookData.getDaysOfMonth(req.params.month,req.params.year);
     console.log("Daily View: " + req.params.month);
     res.render("daily", {month: req.params.month, year: req.params.year, day: req.params.day});
-});
-
-router.get("/:id", (req, res) => {
-    bookData.getBook(req.params.id).then((book) => {
-        res.render("books/single", {bookContent: book});
-    }).catch(() => {
-        res.status(404).json({ error: "User not found" });
-    });
 });
 
 module.exports = router;

@@ -15,6 +15,22 @@ $(document).ready( function() {
         	e.preventDefault();
 		      location.href = "/view/"+ prevMonthLink(parseInt($('#selectedMonth').val()),parseInt($('#selectedYear').val()));
 		});
+
+		$("#form-submit").click(function(e){
+			e.preventDefault();
+			event={
+				id: document.getElementById("form-id").value,
+				month: document.getElementById("form-month").value,
+				day: document.getElementById("form-day").value,
+				year: document.getElementById("form-year").value,
+				title: document.getElementById("form-title").value,
+				location: document.getElementById("form-location").value,
+				description: document.getElementById("form-description").value
+			}
+			addEvent(event);
+		});
+
+
     });
 
 function nextMonthLink(month,year){
@@ -55,4 +71,8 @@ function deleteEvent(id,title) {
 	    });
 	}
     
+}
+
+function addEvent(event){
+	alert(JSON.stringify(event));
 }
