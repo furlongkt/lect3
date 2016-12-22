@@ -17,6 +17,7 @@ const constructorMethod = () => {
     mainWindow = new BrowserWindow({ width: 1200, height: 900 })
 
     mainWindow.loadURL('http://localhost:3000/');
+    mainWindow.maximize();
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools({mode: "undocked"});

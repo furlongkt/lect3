@@ -1,0 +1,5 @@
+<ul>
+	{{#each events}}
+			<li class="event">{{ this.title }}<aside><a title="Edit" class="fa fa-pencil"></a> <a onclick='deleteEvent("{{this._id}}","{{this.title}}")' href="javascript:void(0);" title="Delete" class="fa fa-close "></a></aside></li>
+	{{/each}}
+</ul>

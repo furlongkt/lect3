@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 var expressValidator = require('express-validator');
+var db = require('diskdb');
+db = db.connect('./db', ['events']);
 const app = express();
 const static = express.static(__dirname + '/public');
 
@@ -57,10 +59,23 @@ const handlebarsInstance = exphbs.create({
             var oneDay = 1000 * 60 * 60 * 24;
             var day = Math.floor(diff / oneDay);
             return day;
-        }
-        
+        },
 
-        //TODO create function that gets day of the year (given a date returns its day of the year)
+        getEvents: function(month,day,year){
+            allEvents = db.events.find();
+            if(day!=null && day !="null"){
+                eventsOnDay = allEvents.filter((event) =>{
+                    return ((event.month == month) && (event.day == day) && (event.year == year));
+                }).concat();
+                if(eventsOnDay.length >0){
+                    return eventsOnDay;
+                }else{
+                    return [];
+                }
+            }else{
+                return [];
+            }
+        }
     },
     partialsDir: [
         'views/partials/'

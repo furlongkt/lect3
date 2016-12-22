@@ -12,7 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="/public/js/calendar.js"></script>
     <!-- Insert this line after script imports -->
-    <script>if (window.module) module = window.module;</script>
+    <script>if (window.module) module = window.module;
+    </script>
 </head>
 
 <body>
@@ -20,8 +21,7 @@
         <h1 id="the-heading">A CrAzY Calendar</h1>
         <h2>by Kevin Furlong</h2>
         <section class="row" id="description">
-            <p>Hello! Welcome to the CrAzY Calendar! Here you can add, edit, and remove events on the calendar. You can also display the calendar in two CrAzY views: Monthly View or the Weekly View</p>
-            <form id="create-form">
+            <form method="post" action="/addEventForm" id="create-form">
                 <select name="month" id="selectedMonth">
                     <option value="0" {{#if (isEqual month 0)}}selected="selected" {{/if}}>January</option>
                     <option value="1" {{#if (isEqual month 1)}}selected="selected" {{/if}}>February</option>
@@ -45,11 +45,10 @@
                     <option value="2019" {{#if (isEqual year 2019)}}selected="selected" {{/if}}>2019</option>
                     <option value="2020" {{#if (isEqual year 2020)}}selected="selected" {{/if}}>2020</option>
                 </select>
-                <button onClick="javascript: showModal();" id="myBtn" class="btn"><i class="fa fa-plus" style="padding-right: 7px;"></i> Create Event</button>
+                <button type="submit" id="myBtn" class="btn"><i class="fa fa-plus" style="padding-right: 7px;"></i> Create Event</button>
             </form>
             
         </section>
-        {{> create_event}}
         <section>
             <main class="col-sm-12 col-md-8">
                 <h2>{{ pageTitle }}</h2>

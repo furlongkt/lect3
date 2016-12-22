@@ -3,11 +3,7 @@
 		<h3>Events For {{getDayOfWeek month day year}}, {{monthToString month}} {{day}}</h3>
 		</hr>
 		<div class="events">
-			<ul>
-			{{#each events}}
-				<li> Event {{this}} </li>
-			{{/each}}
-			</ul>
+			{{>eventList events=(getEvents month day year)}}
 		<button onClick="javascript: showModal();" id="myBtn" class="btn"><i class="fa fa-plus" style="padding-right: 7px;"></i> Create Event</button>
 		</div>
 	</div>

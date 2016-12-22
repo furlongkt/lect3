@@ -15,25 +15,6 @@ $(document).ready( function() {
         	e.preventDefault();
 		      location.href = "/view/"+ prevMonthLink(parseInt($('#selectedMonth').val()),parseInt($('#selectedYear').val()));
 		});
-		// Get the modal
-		var modal = $('#myModal');
-
-		// Get the button that opens the modal
-		var btn = $("#myBtn");
-		$('#create-form').submit(function(e){
-			e.preventDefault();
-		});
-
-		// Get the <span> element that closes the modal
-		var span = $(".close");
-
-		//When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			console.log("Ran3!");
-		    if (event.target == modal) {
-		        modal.hide();
-		    }
-		}
     });
 
 function nextMonthLink(month,year){
@@ -53,7 +34,25 @@ function prevMonthLink(month,year){
 	}
 	return month+"/"+year;
 }
-function showModal(){
-	console.log("Ran1!");
-	$('#myModal').show();
+
+function deleteEvent(id,title) {
+	if(confirm("Are you sure you want to delete "+title +"?")){
+		$.ajax({
+	        type: 'DELETE',
+	        url: '/event/'+id,
+	        data: JSON.stringify({"id":id}),
+	        success : function(res){
+	            if(res.success){
+	                alert(title+" has been successfully deleted.");
+	                location.reload();
+	            }else{
+	                alert("Error: The event you are trying to delete could not be found.");
+	            }
+	        },
+	        error: function(xhr){
+	            alert("Error: The server is currently unavailble, please try again later.");
+	        }
+	    });
+	}
+    
 }

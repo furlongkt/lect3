@@ -18,16 +18,13 @@
 	</div>
 
 	<div class="calendar"> 
-	  {{#each days}}
-		  		<div class="day {{#unless this }} null-value {{/unless}}">
-			  		<aside class="date-label"><div class="dayOfWeek">{{ getDayOfWeek ../month this ../year }}</div>{{this}}</aside>
-			  		<ul>
-				  		<li class="event">Testing a really long Event description <aside><a title="Edit" class="fa fa-pencil"></a> <a title="Delete" class="fa fa-close"></a></aside></li>
-				  		<li class="event">Test Event <aside><a title="Edit" class="fa fa-pencil"></a> <a title="Delete" class="fa fa-close"></a></aside></li>
-				  		<li class="event">Test Event <aside><a title="Edit" class="fa fa-pencil"></a> <a title="Delete" class="fa fa-close"></a></aside></li>
-				  		<li class="event">Test Event <aside><a title="Edit" class="fa fa-pencil"></a> <a title="Delete" class="fa fa-close"></a></aside></li>
-			  		</ul>
-		  		</div>
-	  {{/each}}
+	  {{#days }}	
+	  		<div class="day {{#unless this }} null-value {{/unless}}">
+		  		<aside class="date-label"><div class="dayOfWeek">{{ getDayOfWeek ../month this ../year }}</div>{{this}}</aside>
+		  			{{>eventList events=(getEvents ../month this ../year)}}
+		  		</ul>
+		  		
+	  		</div>
+	  {{/days}}
 	  </div>
 </div>

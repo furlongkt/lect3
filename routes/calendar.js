@@ -1,5 +1,6 @@
 const express = require('express');
-var store = require('json-fs-store')();
+var db = require('diskdb');
+db = db.connect('./db', ['events']);
 var uuid = require('node-uuid');
 const router = express.Router();
 const data = require("../data");
@@ -12,13 +13,13 @@ const VIEW = {
 var currentView = VIEW.MONTH;
  
 router.get("/event", (req, res) => {
-    //res.render("addEventForm");
-    store.list(function(err, objects) {
-      // err if there was trouble reading the file system
-      if (err) throw err;
-      // objects is an array of JS objects sorted by name, one per JSON file
-      res.json({success:true, objects: objects});
-    });
+    //objects = db.events.find();
+    objects = db.events.find({"year": "2016", "month": "11", "day": "19"});
+    return res.json({success:true, objects: objects});
+});
+
+router.post("/addEventForm", (req, res) => {
+    res.json({success:true, month: req.body.month, year:req.body.year});
 });
 
 router.post("/event", (req, res) => {
@@ -37,7 +38,7 @@ router.post("/event", (req, res) => {
         //return res.render('addEventForm', errors);
     }else{
         var newEvent = {
-            id: uuid.v4(),
+            _id: uuid.v4(),
             year: req.body.year,
             month: req.body.month,
             day: req.body.day,
@@ -45,18 +46,13 @@ router.post("/event", (req, res) => {
             location: req.body.location,
             description: req.body.description
         }
-        store.add(newEvent, function(err) { 
-          if (err)
-            return res.json({ success: false, error: "Error: Cannot find event with ID: "+ req.body.id });
-            //return res.render({errorMsg: "Error: Cannot find event with ID: "+ req.body.id });
-          return res.json({ success: true, msg: "Success! You have successfully added a new event titled: "+newEvent.title });
-          //return res.render({successMsg: "Success! You have successfully added a new event titled: "+newEvent.title} );;
-        });
+        db.events.save(newEvent);
+        return res.json({ success: true, msg: "Success! You have successfully added a new event titled: "+newEvent.title });
     }
 });
 
 router.put("/event", (req, res) => {
-    req.checkBody('id', 'ID is required').notEmpty().len()
+    req.checkBody('id', 'ID is required').notEmpty();
     req.checkBody('year', 'Year is required and must be an integer').notEmpty().isInt();
     req.checkBody('month', 'Month is required and must be an integer').notEmpty().isInt();
     req.checkBody('day', 'Day is required and must be an integer').notEmpty().isInt();
@@ -70,8 +66,7 @@ router.put("/event", (req, res) => {
       return res.json({ success: false, errors: errors });
         //return res.render('addEventForm', errors);
     }else{
-        var newEvent = {
-            id: req.body.id,
+        var event = {
             year: req.body.year,
             month: req.body.month,
             day: req.body.day,
@@ -79,30 +74,20 @@ router.put("/event", (req, res) => {
             location: req.body.location,
             description: req.body.description
         }
-        store.remove(req.body.id, function(err) { 
-          if (err){
-              return res.json({ success: false, error: "Error: Cannot find event with ID: "+ req.body.id });
-              //return res.render({errorMsg: "Error: Cannot find event with ID: "+ req.body.id });
-          }
-          store.add(newEvent, function(err) { 
-            if (err)
-              return res.json({ success: false, error: "Error: Cannot find event with ID: "+ req.body.id });
-              //return res.render({errorMsg: "Error: Cannot find event with ID: "+ req.body.id });
-            return res.json({ success: true, msg: "Success! You have successfully updated the event titled: "+newEvent.title });
-            //return res.render({successMsg: "Success! You have successfully added a new event titled: "+newEvent.title} );;
-          });
-        });
+        var updated = db.events.update({_id: req.body.id}, event,{multi: false, upsert:false});
+        if(updated.updated > 0){
+          res.json({ success: true, msg: "Success! You have successfully updated the event titled: "+event.title });
+        }else{
+          res.json({ success: false, error: "Error: Cannot find event with ID: "+ req.body.id });
+        }
     }
 });
 
 router.delete("/event/:id", (req, res) => {
-    store.remove(req.params.id, function(err) { 
-        if (err){
-            return res.json({ success: false, err: err, error: "Error: Cannot find event with ID: "+ req.params.id });
-            //return res.render({errorMsg: "Error: Cannot find event with ID: "+ req.body.id });
-        }
-        return res.json({ success: true, msg: "Success! You have successfully deleted the event with an id: "+req.params.id });
-    });
+    if(db.events.remove({_id : req.params.id}, false)){
+      return res.json({ success: true, msg: "Success! You have successfully deleted the event with an id: "+req.params.id });
+    }
+    return res.json({ success: false, err: err, error: "Error: Cannot find event with ID: "+ req.params.id });
   });
 
 router.get("/view/:month/:year", (req, res) => {

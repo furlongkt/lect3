@@ -117,7 +117,8 @@ ul {
   float: right; }
 
 .event > aside > a {
-  padding-right: 3px; }
+  padding-right: 3px;
+  color: #266B6B; }
 
 .event > aside > a:hover, a#next:hover, a#prev:hover {
   color: #BDD2D2; }
