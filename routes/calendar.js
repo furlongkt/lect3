@@ -19,7 +19,7 @@ router.get("/event", (req, res) => {
 });
 
 router.post("/addEventForm", (req, res) => {
-    res.json({success:true, month: req.body.month, year:req.body.year});
+    res.render('eventForm', {month: req.body.month, year:req.body.year});
 });
 
 router.post("/event", (req, res) => {
