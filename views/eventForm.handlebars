@@ -2,32 +2,16 @@
 <form onsubmit="event.preventDefault();">
 <input type="hidden" id="form-id" name="id" value=""/>
 Date:
-<select name="month" id="form-month">
-	<option value="" disabled>Month</option>
-	{{#repeat 12}}
-		<option value="{{this}}">{{ monthToString this }}</option>
-	{{/repeat}}
-</select> / 
+	<input type="date" /><br/><br/>
 
-<select id="form-day" name="day">
-	<option value="" disabled>Day</option>
-	{{#repeat 31 }}
-		<option value="{{this}}">{{ this }}</option>
-	{{/repeat}}
-</select> / 
+Title:<br/>
+<input id="form-title" type="text" name="title"/><br/><br/>
 
-<select id="form-year" name="year">
-	<option value="" disabled>Year</option>
-</select> <br><br>
+Location:<br/>
+<input id="form-location" type="text" name="title"/><br/><br/>
 
-Title:<br>
-<input id="form-title" type="text" name="title"/><br><br>
-
-Location:<br>
-<input id="form-location" type="text" name="title"/><br><br>
-
-Description:<br>
-<textarea id="form-description" name="description" rows=8 cols=35></textarea><br><br>
+Description:<br/>
+<textarea id="form-description" name="description" rows=8 cols=35></textarea><br/><br/>
 
 <div class="error"></div>
 <button id="form-submit" class="btn">Create Event</button>
