@@ -13,3 +13,14 @@ body, html {
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: $primary-font-size;
 } 
+
+#back-button{
+	float: right;
+	text-decoration: none;
+}
+
+#back-button:visited {
+	color: white;
+	text-decoration:none;
+	
+}
