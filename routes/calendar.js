@@ -41,6 +41,10 @@ router.get("/event", (req, res) => {
     return res.json({success:true, objects: objects});
 });
 
+router.get("/test",(req,res)=>{
+    res.render("test");
+});
+
 router.get("/addEventForm", (req, res) => {
     res.render('eventForm');
 });

@@ -1,0 +1,24 @@
+<!-- Test Input -->
+			<div class= "nearby-day"> 
+				{{#with (dayBefore month day year 2)}}
+					{{month}}/{{day}}
+				{{/with}}
+			</div>
+			<div class= "nearby-day"> 
+				{{#with (dayBefore month day year 1)}}
+					{{month}}/{{day}}
+				{{/with}}
+			</div>
+			<div class= "nearby-day"> 
+				{{month}}/{{day}}
+			</div>
+			<div class= "nearby-day"> 
+				{{#with (dayAfter month day year 1)}}
+					{{month}}/{{day}}
+				{{/with}}
+			</div>
+			<div class= "nearby-day"> 
+				{{#with (dayAfter month day year 2)}}
+					{{month}}/{{day}}
+				{{/with}}
+			</div>

@@ -64,11 +64,10 @@ const handlebarsInstance = exphbs.create({
             var oldDate = new Date(year,month,day);
             var newDate = new Date();
             newDate.setDate(oldDate.getDate() + count);
-            console.log(count+" day later than "+(month+1)+"/"+day+"/"+year+": "+newDate);
             updated = {
-                month: newDate.getMonth(),
-                day: newDate.getDay(),
-                year: newDate.getYear()
+                month: (newDate.getMonth()+1),
+                day: newDate.getDate(),
+                year: (newDate.getYear() + 1900)
             }
             return updated;
         },
@@ -77,11 +76,10 @@ const handlebarsInstance = exphbs.create({
             var oldDate = new Date(year,month,day);
             var newDate = new Date();
             newDate.setDate(oldDate.getDate() - count);
-            console.log(count+" day later than "+(month+1)+"/"+day+"/"+year+": "+newDate);
             updated = {
-                month: newDate.getMonth(),
-                day: newDate.getDay(),
-                year: newDate.getYear()
+                month: (newDate.getMonth() + 1),
+                day: newDate.getDate(),
+                year: (newDate.getYear() + 1900)
             }
             return updated;
         },
@@ -110,7 +108,7 @@ const handlebarsInstance = exphbs.create({
         },
 
         numDays: function(month,year){
-            return new Date(year, month+1, 0).getDate();
+            return new Date(year, month-1, 0).getDate();
         }
     },
     partialsDir: [
