@@ -111,6 +111,13 @@ a.btn{
     color: #333;
 }
 
+.date-label:hover {
+  -webkit-transition: font-size .3s; /* Safari 3.1 to 6.0 */
+  transition: font-size .3s;
+  color: white;
+  font-size: 25px;
+}
+
 .day .date-label a:link, a:hover, a:visited, a:active{
 	color: #333;
 }
