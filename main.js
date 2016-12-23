@@ -112,6 +112,20 @@ const handlebarsInstance = exphbs.create({
             return "/view/"+current.getMonth()+"/"+current.getFullYear();
         },
 
+        linkToNextDay: function(month,day,year,count){
+            var oldDate = new Date(year,month,day);
+            var newDate = new Date(year,month,day);
+            newDate.setDate(oldDate.getDate() + count);
+            return "/view/"+newDate.getMonth()+"/"+newDate.getFullYear()+"/"+newDate.getDate();
+        },
+
+        linkToPrevDay: function(month,day,year,count){
+            var oldDate = new Date(year,month,day);
+            var newDate = new Date(year,month,day);
+            newDate.setDate(oldDate.getDate() - count);
+            return "/view/"+newDate.getMonth()+"/"+newDate.getFullYear()+"/"+newDate.getDate();
+        },
+
         repeat: function(n, block){
             var accum = '';
             for(var i = 0; i < n; ++i)
