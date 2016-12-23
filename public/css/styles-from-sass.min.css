@@ -1,58 +1,62 @@
 .dateAndEvents {
-  display: inline-block;
-  width: 52%;
-}
+  width: 100%; }
 
 .dateAndInfo {
   display: inline-block;
-  border-left: solid;
   padding: 15px;
-  float: right;
-}
+  border-top: 1px dashed black;
+  border-left: none;
+  float: left; }
 
 hr {
-  border-width: 1px 0 0;
-}
+  border-width: 1px 0 0; }
 
 .nearbyDays {
-  margin-top: 20px;
-  display: inline-flex;
-  width: 100%;
-}
+  display: none; }
 
 .nearby-day {
-  border: solid;
-  padding: 50px;
-  background-color:#CCCCCC;
+  border: 3px solid #333;
+  padding: 50px 0px;
+  background-color: #CCCCCC;
   width: 100%;
-}
+  vertical-align: middle;
+  text-align: center; }
+
+.nearby-day.navi {
+  width: 20%; }
+
+.nearby-day.current-day {
+  background-color: #74B974;
+  color: white; }
+
+.nearby-day.navi a {
+  color: #74B974; }
 
 .nearByDays-mobile {
-  display: none;
-}
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%; }
 
-@media only screen and (max-width: 1167px){
+@media (min-width: 401px) {
   .dateAndInfo {
     display: inline-block;
+    border-left: solid;
     padding: 15px;
-    border-top: 1px dashed black;
-    border-left: none;
-    float: left;
-  }
-
-  #myBtn {
-    float: right;
-  }
+    float: right; }
+  .dateAndEvents {
+    display: inline-block;
+    width: 52%; }
   .nearbyDays {
-    display: none;
-  }
-
-  .nearByDays-mobile {
-    margin-top: 20px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     width: 100%;
-  }
-}
+    margin-top: 20px; }
+  .nearby-day.navi {
+    width: 15%; }
+  .nearByDays-mobile {
+    display: none; } }
 
 .isa_info, .isa_success, .isa_warning, .isa_error {
   margin: 10px 0px;
@@ -75,8 +79,8 @@ hr {
 
 .isa_error {
   color: #D8000C;
-  background-color: #FFBABA; 
-  display: none;}
+  background-color: #FFBABA;
+  display: none; }
 
 .isa_info i, .isa_success i, .isa_warning i, .isa_error i {
   margin: 10px 22px;
@@ -139,7 +143,9 @@ a.btn {
   box-shadow: inset 0px 1px 3px 0px #3dc21b;
   background-color: #74B974;
   border: 1px solid #18ab29;
-  text-shadow: 0px -1px 0px #2f6627; }
+  text-shadow: 0px -1px 0px #2f6627;
+  color: white;
+  text-align: center; }
 
 .btn.green:hover {
   background-color: #98CC98; }
@@ -206,15 +212,15 @@ a.btn {
   width: 100%;
   color: #333; }
 
-.day .date-label a:link, a:hover, a:visited, a:active {
-  color: #333; }
-
 .date-label:hover {
-  -webkit-transition: font-size .3s; /* Safari 3.1 to 6.0 */
+  -webkit-transition: font-size .3s;
+  /* Safari 3.1 to 6.0 */
   transition: font-size .3s;
   color: white;
-  font-size: 25px;
-}
+  font-size: 25px; }
+
+.day .date-label a:link, a:hover, a:visited, a:active {
+  color: #333; }
 
 .event {
   display: inline-block;

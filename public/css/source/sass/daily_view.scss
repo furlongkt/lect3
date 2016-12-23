@@ -1,13 +1,13 @@
 .dateAndEvents {
-	display: inline-block;
-	width: 52%;
+	width: 100%;
 }
 
 .dateAndInfo {
 	display: inline-block;
-	border-left: solid;
 	padding: 15px;
-	float: right;
+	border-top: 1px dashed black;
+	border-left: none;
+	float: left;
 }
 
 hr {
@@ -15,41 +15,62 @@ hr {
 }
 
 .nearbyDays {
-	margin-top: 20px;
+	display: none;
+}
+
+.nearby-day {
+	border: 3px solid #333;
+	padding: 50px 0px;
+	background-color:#CCCCCC;
+	width: 100%;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.nearby-day.navi{
+	width:20%;
+}
+
+.nearby-day.current-day{
+	background-color: #74B974;
+	color: white;
+}
+
+.nearby-day.navi a{
+	color: #74B974;
+}
+
+.nearByDays-mobile {
 	display: inline-flex;
 	width: 100%;
 }
 
-.nearby-day {
-	border: solid;
-	padding: 50px;
-	background-color:#CCCCCC;
-	width: 100%;
-}
-
-.nearByDays-mobile {
-	display: none;
-}
-
-@media only screen and (max-width: 1167px){
+@media (min-width: 401px){
 	.dateAndInfo {
 		display: inline-block;
+		border-left: solid;
 		padding: 15px;
-		border-top: 1px dashed black;
-		border-left: none;
-		float: left;
-	}
-
-	#myBtn {
 		float: right;
 	}
+
+	.dateAndEvents {
+		display: inline-block;
+		width: 52%;
+	}
+
 	.nearbyDays {
-		display: none;
+		display: inline-flex;
+		width: 100%;
+		margin-top: 20px;
+	}
+
+	.nearby-day.navi{
+		width:15%;
 	}
 
 	.nearByDays-mobile {
-		margin-top: 20px;
-		display: inline-flex;
-		width: 100%;
+		display: none;
 	}
+
+
 }

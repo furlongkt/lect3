@@ -25,7 +25,13 @@
 	<p>
 		<button onclick='deleteEvent("{{this._id}}","{{this.title}}");' class="btn red"><i class="fa fa-trash" style="padding-right: 7px;"></i> Delete</button> 
 
-		<a href="/editEventForm/{{this._id}}" class="btn green"><i class="fa fa-pencil" style="padding-right: 7px;"></i> Edit</a>
+		<a href="/editEventForm/{{this._id}}" class="btn green"><i class="fa fa-pencil" style="padding-right: 7px;"></i> Edit</a><br>
+
+		<a href="/view/{{this.month}}/{{this.year}}" class="btn green">
+		Return to Monthly View</a>
+
+		<a href="/view/{{this.month}}/{{this.year}}/{{this.day}}" class="btn green">Return to Daily View</a>
+
 	</p>
 </div>
 {{/event}}

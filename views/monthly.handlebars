@@ -24,7 +24,9 @@
 	<div class="calendar"> 
 	  {{#days}}
 	  		<div class="day {{#unless this }} null-value {{/unless}}">
-	  			<a href="/view/{{ ../month}}/{{ ../year}}/{{this}}">
+	  			{{#if this}}
+		  			<a href="/view/{{ ../month}}/{{ ../year}}/{{this}}">
+		  		{{/if}}
 			  		<aside class="date-label">
 			  			<div class="dayOfWeek">
 			  				{{ getDayOfWeek ../month this ../year }}
@@ -32,8 +34,9 @@
 			  			{{this}}
 			  		</aside>
 			  			{{>eventList events=(getEvents ../month this ../year)}}
-		  		</a>
+		  		{{#if this}}</a>{{/if}}
 	  		</div>
+	  		
 	  {{/days}}
 	  </div>
 </div>

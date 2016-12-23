@@ -16,7 +16,7 @@
 	</div>
 
 	<div class="nearbyDays">
-		<div class="nearby-day"><a href="{{linkToPrevDay month day year 1}}" id="prev"><aside class="prev">&#10094;</aside></a></div>
+		<div class="nearby-day navi"><a href="{{linkToPrevDay month day year 1}}" id="prev"><aside class="prev">&#10094;</aside></a></div>
 			<div class= "nearby-day"> 
 				{{#with (dayBefore month day year 2)}}
 					{{month}}/{{day}}
@@ -27,7 +27,7 @@
 					{{month}}/{{day}}
 				{{/with}}
 			</div>
-			<div class= "nearby-day"> 
+			<div class= "nearby-day current-day"> 
 				{{add month 1}}/{{day}}
 			</div>
 			<div class= "nearby-day"> 
@@ -41,12 +41,12 @@
 				{{/with}}
 			</div>
 
-		<div class="nearby-day"><a href="{{linkToNextDay month day year 1}}" id="next"><aside class="next">&#10095;</aside></a></div>
+		<div class="nearby-day navi"><a href="{{linkToNextDay month day year 1}}" id="next"><aside class="next">&#10095;</aside></a></div>
 	    
 	</div>
 	<div class="nearByDays-mobile">
-		<div class="nearby-day"><a href="#" id="prev"><aside class="prev">&#10094;</aside></a></div>
-			<div class="nearby-day"> {{month}}/{{day}}</div>
-		<div class="nearby-day"><a href="#" id="next"><aside class="next">&#10095;</aside></a></div>
+		<div class="nearby-day navi"><a href="{{linkToPrevDay month day year 1}}" id="prev"><aside class="prev">&#10094;</aside></a></div>
+			<div class="nearby-day">{{add month 1}}/{{day}}</div>
+		<div class="nearby-day navi"><a href="{{linkToNextDay month day year 1}}" id="next"><aside class="next">&#10095;</aside></a></div>
 	</div>
 </div>

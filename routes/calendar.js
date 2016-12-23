@@ -52,7 +52,14 @@ router.get("/addEventForm", (req, res) => {
 });
 
 router.get("/addEventForm/:month/:year/:day", (req, res) => {
-    var d = req.params.year+"-"+(parseInt(req.params.month) + 1) +"-"+req.params.day;
+    var m = (parseInt(req.params.month) + 1)+"";
+    if(m.length != 2)
+        m = "0" + m;
+    day = req.params.day;
+    if(day.length != 2)
+        day = "0" + day;
+
+    var d = req.params.year+"-"+m +"-"+day;
     res.render('addEventForm',{date: d});
 });
 
