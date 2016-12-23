@@ -1,0 +1,11 @@
+TODO
+- create way to store events (i'm thinking mongodb right now)
+	- link up add event form create button
+- Daily View
+	- finish styling (add responsiveness aswell)
+	- figure out nearby days functionality
+		- how to poulate previous two days and upcoming two days on either side of current day
+		- left and right arrows to shift visible dates by 5 each
+	- back button
+- Month view
+	- fix arrow buttons
