@@ -10,3 +10,16 @@ TODO
 	- date on hover styling
 - Make separate form for editing specific events
 - Hide error box
+- Edit electron menu
+	- File
+		- save calendar
+		- load calenadr
+	- Modes
+		- Change To Tablet
+		- Change To Desktop
+		- Change To Mobile View
+
+TODO if feelin good
+- Month view
+	- responsive month slides down to bottom
+	- responsive arrow buttons slide down to bottom
