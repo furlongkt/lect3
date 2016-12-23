@@ -16,10 +16,23 @@ hr {
 
 .nearbyDays {
 	margin-top: 20px;
-	dispaly: inline-flex;
+	display: inline-flex;
+	background-color:#CCCCCC;
 }
 
 .nearby-day {
 	border: solid;
-	padding: 70px;
+	padding: 50px;
+}
+
+@media only screen and (max-width: 1167px){
+	.dateAndInfo {
+		display: inline-block;
+		padding: 15px;
+		border-top: 1px dashed black;
+	}
+
+	#myBtn {
+		float: right;
+	}
 }
