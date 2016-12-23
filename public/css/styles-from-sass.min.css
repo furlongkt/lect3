@@ -1,7 +1,6 @@
 .dateAndEvents {
   display: inline-block;
   width: 60%;
-  float: left;
 }
 
 .dateAndInfo {
@@ -28,9 +27,13 @@ hr {
   width: 100%;
 }
 
-@media only screen and (max-width: 1405px){
+.nearByDays-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 1167px){
   .dateAndInfo {
-    display: block;
+    display: inline-block;
     padding: 15px;
     border-top: 1px dashed black;
     border-left: none;
@@ -39,6 +42,15 @@ hr {
 
   #myBtn {
     float: right;
+  }
+  .nearbyDays {
+    display: none;
+  }
+
+  .nearByDays-mobile {
+    margin-top: 20px;
+    display: inline-flex;
+    width: 100%;
   }
 }
 

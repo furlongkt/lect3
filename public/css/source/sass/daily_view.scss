@@ -27,6 +27,10 @@ hr {
 	width: 100%;
 }
 
+.nearByDays-mobile {
+	display: none;
+}
+
 @media only screen and (max-width: 1167px){
 	.dateAndInfo {
 		display: inline-block;
@@ -38,5 +42,14 @@ hr {
 
 	#myBtn {
 		float: right;
+	}
+	.nearbyDays {
+		display: none;
+	}
+
+	.nearByDays-mobile {
+		margin-top: 20px;
+		display: inline-flex;
+		width: 100%;
 	}
 }
