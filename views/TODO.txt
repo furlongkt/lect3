@@ -1,6 +1,4 @@
 TODO
-- create way to store events (i'm thinking mongodb right now)
-	- link up add event form create button
 - Daily View
 	- finish styling (add responsiveness aswell)
 	- figure out nearby days functionality
@@ -9,3 +7,6 @@ TODO
 	- back button
 - Month view
 	- fix arrow buttons
+	- date on hover styling
+- Make separate form for editing specific events
+- Hide error box
