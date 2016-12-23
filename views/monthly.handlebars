@@ -5,8 +5,8 @@
 
 <div class="row">
 	<div class="month"> 
-	    <a href="#" id="prev"><aside class="prev">&#10094;</aside></a>
-	    <a href="#" id="next"><aside class="next">&#10095;</aside></a>
+	    <a href="{{getLinkToPrevMonth month year}}" id="prev"><aside class="prev">&#10094;</aside></a>
+	    <a href="{{getLinkToNextMonth month year}}" id="next"><aside class="next">&#10095;</aside></a>
 	    <span class="cal-title">
 	      {{ monthToString month }} {{{ year }}}
 	    </span>

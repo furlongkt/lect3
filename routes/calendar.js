@@ -13,7 +13,9 @@ const VIEW = {
 var currentView = VIEW.MONTH;
 
 function getDaysOfMonth(month,year){
-        var numDays = new Date(year, month+1, 0).getDate();
+        var now = new Date(parseInt(year), (parseInt(month) + 1), 0);
+        var numDays = now.getDate();
+        console.log(month+"/"+ year+": "+ now);
         var firstDay = new Date(year,month,1);
         var lastDay = new Date(year,month,numDays);
         var ret = new Array();
@@ -128,7 +130,7 @@ router.delete("/event/:id", (req, res) => {
   });
 
 router.get("/view/:month/:year", (req, res) => {
-    var daysOfMonth = getDaysOfMonth(req.params.month,req.params.year);
+    var daysOfMonth = getDaysOfMonth(req.params.month, req.params.year);
     res.render("monthly", {month: req.params.month, year: req.params.year, days: daysOfMonth});
 });
 

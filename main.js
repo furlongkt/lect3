@@ -100,6 +100,18 @@ const handlebarsInstance = exphbs.create({
             }
         },
 
+        getLinkToNextMonth: function(month,year){
+            var now = new Date(year,month,1);
+            current = new Date(now.getFullYear(), now.getMonth()+1, 1);
+            return "/view/"+current.getMonth()+"/"+current.getFullYear();
+        },
+
+        getLinkToPrevMonth: function(month,year){
+            var now = new Date(year,month,1);
+            current = new Date(now.getFullYear(), now.getMonth()-1, 1);
+            return "/view/"+current.getMonth()+"/"+current.getFullYear();
+        },
+
         repeat: function(n, block){
             var accum = '';
             for(var i = 0; i < n; ++i)
@@ -108,7 +120,9 @@ const handlebarsInstance = exphbs.create({
         },
 
         numDays: function(month,year){
-            return new Date(year, month-1, 0).getDate();
+            var now = new Date(year, month+1, 0);
+            console.log("This month: "+ now);
+            return now.getDate();
         }
     },
     partialsDir: [
