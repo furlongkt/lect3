@@ -33,6 +33,7 @@ function addEvent(event){
                 alert(event.title+" has been successfully created.");
                 location.reload();
             }else{
+            	document.getElementById('form-errors').style.display='block';
             	err = "";
             	res.errors.forEach((e)=>{
             		err = err + "\n<li>"+e.msg+"</li>";

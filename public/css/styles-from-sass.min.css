@@ -75,7 +75,8 @@ hr {
 
 .isa_error {
   color: #D8000C;
-  background-color: #FFBABA; }
+  background-color: #FFBABA;
+  display: none; }
 
 .isa_info i, .isa_success i, .isa_warning i, .isa_error i {
   margin: 10px 22px;
