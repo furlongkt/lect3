@@ -75,7 +75,8 @@ hr {
 
 .isa_error {
   color: #D8000C;
-  background-color: #FFBABA; }
+  background-color: #FFBABA; 
+  display: none;}
 
 .isa_info i, .isa_success i, .isa_warning i, .isa_error i {
   margin: 10px 22px;
@@ -207,6 +208,13 @@ a.btn {
 
 .day .date-label a:link, a:hover, a:visited, a:active {
   color: #333; }
+
+.date-label:hover {
+  -webkit-transition: font-size .3s; /* Safari 3.1 to 6.0 */
+  transition: font-size .3s;
+  color: white;
+  font-size: 25px;
+}
 
 .event {
   display: inline-block;
