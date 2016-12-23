@@ -16,7 +16,6 @@ function getDaysOfMonth(month,year){
         var numDays = new Date(year, month+1, 0).getDate();
         var firstDay = new Date(year,month,1);
         var lastDay = new Date(year,month,numDays);
-        console.log(month +"/"+year +" - "+ firstDay);
         var ret = new Array();
         var paddedCount = firstDay.getDay();
 
@@ -42,12 +41,12 @@ router.get("/event", (req, res) => {
     return res.json({success:true, objects: objects});
 });
 
-router.post("/addEventForm", (req, res) => {
-    res.render('eventForm', {month: req.body.month, year:req.body.year});
+router.get("/addEventForm", (req, res) => {
+    res.render('eventForm');
 });
 
 router.post("/event", (req, res) => {
-
+    console.log("POST: "+req.body.year+"-"+req.body.month+"-"+req.body.day);
     req.checkBody('year', 'Year is required and must be an integer').notEmpty().isInt();
     req.checkBody('month', 'Month is required and must be an integer').notEmpty().isInt();
     req.checkBody('day', 'Day is required and must be an integer').notEmpty().isInt();
@@ -108,11 +107,11 @@ router.put("/event", (req, res) => {
 });
 
 router.get("/event/:id", (req, res) => {
-    if(db.events.count({_id:req.params.id})>0){
+    event = db.events.find({_id: req.params.id});
+    if(event.length > 0){
         event = db.events.find({_id: req.params.id});
         return res.render('eventDetails', {event: event});
     }else{
-        alert("Error: Cannot find event "+req.params.id);
         return res.redirect('/');
     }
 });
@@ -126,12 +125,10 @@ router.delete("/event/:id", (req, res) => {
 
 router.get("/view/:month/:year", (req, res) => {
     var daysOfMonth = getDaysOfMonth(req.params.month,req.params.year);
-    console.log("Monthly View: " + req.params.month);
     res.render("monthly", {month: req.params.month, year: req.params.year, days: daysOfMonth});
 });
 
 router.get("/view/:month/:year/:day", (req, res) => {
-    console.log("Daily View: " + req.params.month);
     res.render("daily", {month: req.params.month, year: req.params.year, day: req.params.day});
 });
 

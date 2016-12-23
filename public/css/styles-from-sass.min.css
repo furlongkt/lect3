@@ -18,6 +18,34 @@ hr {
   border: solid;
   padding: 70px; }
 
+.isa_info, .isa_success, .isa_warning, .isa_error {
+  margin: 10px 0px;
+  padding: 12px;
+  border-radius: .5em;
+  font-size: medium;
+  width: 100%; }
+
+.isa_info {
+  color: #00529B;
+  background-color: #BDE5F8; }
+
+.isa_success {
+  color: #4F8A10;
+  background-color: #DFF2BF; }
+
+.isa_warning {
+  color: #9F6000;
+  background-color: #FEEFB3; }
+
+.isa_error {
+  color: #D8000C;
+  background-color: #FFBABA; }
+
+.isa_info i, .isa_success i, .isa_warning i, .isa_error i {
+  margin: 10px 22px;
+  font-size: 2em;
+  vertical-align: middle; }
+
 * {
   box-sizing: border-box; }
 
@@ -66,6 +94,9 @@ ul {
   text-decoration: none;
   width: 100%;
   margin: 5px 0px; }
+
+a.btn {
+  color: #ffffff; }
 
 .btn.green {
   box-shadow: inset 0px 1px 3px 0px #3dc21b;

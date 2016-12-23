@@ -37,7 +37,6 @@ const handlebarsInstance = exphbs.create({
         },
 
         getDayOfWeek: function(month,day,year){
-            console.log("GettingDay: "+ month+"/"+day+"/"+year);
             var date = new Date(year,month,day).getDay();
             var options = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             return options[date%7];
