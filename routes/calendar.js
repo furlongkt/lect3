@@ -48,7 +48,17 @@ router.get("/test",(req,res)=>{
 });
 
 router.get("/addEventForm", (req, res) => {
-    res.render('eventForm');
+    res.render('addEventForm');
+});
+
+router.get("/editEventForm/:id", (req, res) => {
+    event = db.events.find({_id: req.params.id});
+    if(event.length > 0){
+        var d = event.year+"-"+event.month+"-"+event.day;
+        res.render('editEventForm',{event: event, date:d});
+    }else{
+        return res.redirect('/');
+    }
 });
 
 router.post("/event", (req, res) => {

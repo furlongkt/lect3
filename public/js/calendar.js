@@ -22,6 +22,7 @@ function deleteEvent(id,title) {
 }
 
 function addEvent(event){
+	delete event.id;
 	$.ajax({
         type: 'POST',
         url: '/event',
@@ -30,7 +31,32 @@ function addEvent(event){
         success : function(res){
             if(res.success){
                 alert(event.title+" has been successfully created.");
-                //location.reload();
+                location.reload();
+            }else{
+            	err = "";
+            	res.errors.forEach((e)=>{
+            		err = err + "\n<li>"+e.msg+"</li>";
+            	});
+                $("#form-errors").html("<i class=\"fa fa-times-circle\"></i><ul>"+err+"</ul>");
+            }
+        },
+        error: function(xhr){
+            alert("Error: The server is currently unavailble, please try again later.");
+        }
+    });
+}
+
+function updateEvent(event){
+	delete event.id;
+	$.ajax({
+        type: 'PUT',
+        url: '/event/'+event.id,
+        contentType: 'application/json',
+        data: JSON.stringify(event),
+        success : function(res){
+            if(res.success){
+                alert(event.title+" has been successfully updated.");
+                location.reload();
             }else{
             	err = "";
             	res.errors.forEach((e)=>{
@@ -65,9 +91,8 @@ function eventFormSubmitted(){
 		"description": document.getElementById("form-description").value
 	}
 	if(event.id!=""){
-		//editSubmission
+		updateEvent(event);
 	}else{
 		addEvent(event);
 	}
-	return false;
 }

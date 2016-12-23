@@ -1,0 +1,23 @@
+<h3>New Event</h3>
+<hr/>
+<form onsubmit="return false;">
+	<input type="hidden" id="form-id" name="id" value="{{event._id}}"/>
+	Date:
+		<input id="form-date" type="date" value="{{date}}"/><br/><br/>
+
+	Title:<br/>
+	<input id="form-title" type="text" value="{{event.title}}" /><br/><br/>
+
+	Location:<br/>
+	<input id="form-location" type="text" value="{{event.location}}"/><br/><br/>
+
+	Description:<br/>
+	<textarea id="form-description" rows=8 cols=35>{{event.description}}</textarea><br/><br/>
+
+	<div class="isa_error" id="form-errors">
+	</div>
+	<div>
+		<button id="form-submit" onclick="eventFormSubmitted();" class="btn green">Update</button>
+		<button class="btn green" onclick="goBack()">Cancel</button>
+	</div>
+</form>

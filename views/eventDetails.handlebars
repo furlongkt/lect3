@@ -25,7 +25,7 @@
 	<p>
 		<button onclick='deleteEvent("{{this._id}}","{{this.title}}");' class="btn red"><i class="fa fa-trash" style="padding-right: 7px;"></i> Delete</button> 
 
-		<button type="submit" class="btn green"><i class="fa fa-pencil" style="padding-right: 7px;"></i> Edit</button>
+		<a href="/editEventForm/{{id}}" class="btn green"><i class="fa fa-pencil" style="padding-right: 7px;"></i> Edit</button>
 	</p>
 </div>
 {{/event}}

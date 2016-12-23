@@ -62,7 +62,7 @@ const handlebarsInstance = exphbs.create({
 
         dayAfter: function(month,day,year,count){
             var oldDate = new Date(year,month,day);
-            var newDate = new Date();
+            var newDate = new Date(year,month,day);
             newDate.setDate(oldDate.getDate() + count);
             updated = {
                 month: (newDate.getMonth()+1),
@@ -74,7 +74,7 @@ const handlebarsInstance = exphbs.create({
 
         dayBefore: function(month,day,year,count){
             var oldDate = new Date(year,month,day);
-            var newDate = new Date();
+            var newDate = new Date(year,month,day);
             newDate.setDate(oldDate.getDate() - count);
             updated = {
                 month: (newDate.getMonth() + 1),
@@ -117,6 +117,10 @@ const handlebarsInstance = exphbs.create({
             for(var i = 0; i < n; ++i)
                 accum += block.fn(i);
             return accum;
+        },
+
+        add: function(val1, val2){
+            return parseInt(val1) + parseInt(val2);
         },
 
         numDays: function(month,year){
