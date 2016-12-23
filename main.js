@@ -60,6 +60,32 @@ const handlebarsInstance = exphbs.create({
             return day;
         },
 
+        dayAfter: function(month,day,year,count){
+            var oldDate = new Date(year,month,day);
+            var newDate = new Date();
+            newDate.setDate(oldDate.getDate() + count);
+            console.log(count+" day later than "+(month+1)+"/"+day+"/"+year+": "+newDate);
+            updated = {
+                month: newDate.getMonth(),
+                day: newDate.getDay(),
+                year: newDate.getYear()
+            }
+            return updated;
+        },
+
+        dayBefore: function(month,day,year,count){
+            var oldDate = new Date(year,month,day);
+            var newDate = new Date();
+            newDate.setDate(oldDate.getDate() - count);
+            console.log(count+" day later than "+(month+1)+"/"+day+"/"+year+": "+newDate);
+            updated = {
+                month: newDate.getMonth(),
+                day: newDate.getDay(),
+                year: newDate.getYear()
+            }
+            return updated;
+        },
+
         getEvents: function(month,day,year){
             allEvents = db.events.find();
             if(day!=null && day !="null"){

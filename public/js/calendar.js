@@ -9,7 +9,7 @@ $(document).ready( function() {
         });
         $("a#next").click(function(e){
         	e.preventDefault();
-		      location.href = "/view/"+ nextMonthLink(parseInt($('#selectedMonth').val()),parseInt($('#selectedYear').val()));
+		    location.href = "/view/"+ nextMonthLink(parseInt($('#selectedMonth').val()),parseInt($('#selectedYear').val()));
 		});
 		$("a#prev").click(function(e){
         	e.preventDefault();
