@@ -4,13 +4,6 @@
 	    <a href="#" id="next"><aside class="next">&#10095;</aside></a>
 	    <span class="cal-title">
 	      {{ monthToString month }} {{{ year }}}
-
-	    <!-- for some reason month and year appear up here but not down there -->
-	    <script>
-			console.log({{month}});
-			console.log({{year}});
-	  	</script>
-
 	    </span>
 	</div>
 
@@ -25,12 +18,18 @@
 	</div>
 
 	<div class="calendar"> 
-	  {{#days }}	
+		 <!-- for some reason month and year appear up here but not down there -->
+		<script>
+			console.log({{month}});
+			console.log({{year}});
+	  	</script>
+
+	  {{#days}}
 	  		<div class="day {{#unless this }} null-value {{/unless}}">
 
 	  			<!--Get get month and year to show up, if you hover over a link on the monthly view only the day shows up -->
 
-	  			<a href="/view/{{{month}}}/{{{year}}}/{{this}}">
+	  			<a href="/view/{{ month}}/{{ year}}/{{this}}">
 
 	  				<script>
 	  				//These yeild nothing right now :-(
