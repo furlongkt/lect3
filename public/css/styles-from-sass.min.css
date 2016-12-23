@@ -5,18 +5,30 @@
 .dateAndInfo {
   display: inline-block;
   border-left: solid;
-  padding: 15px; }
+  padding: 15px;
+  float: right; }
 
 hr {
   border-width: 1px 0 0; }
 
 .nearbyDays {
-  dispaly: inline-flex;
-  margin-top: 20px; }
+  margin-top: 20px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: #CCCCCC; }
 
 .nearby-day {
   border: solid;
-  padding: 70px; }
+  padding: 50px; }
+
+@media only screen and (max-width: 1167px) {
+  .dateAndInfo {
+    display: inline-block;
+    padding: 15px;
+    border-top: 1px dashed black; }
+  #myBtn {
+    float: right; } }
 
 .isa_info, .isa_success, .isa_warning, .isa_error {
   margin: 10px 0px;
