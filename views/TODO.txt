@@ -1,13 +1,4 @@
 TODO
-- Daily View
-	- figure out nearby days functionality
-		- how to poulate previous two days and upcoming two days on either side of current day
-		- left and right arrows to shift visible dates by 5 each
-- Month view
-	- fix arrow buttons
-	- date on hover styling
-- Make separate form for editing specific events
-- Hide error box
 - Edit electron menu
 	- File
 		- save calendar
