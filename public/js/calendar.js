@@ -47,10 +47,9 @@ function addEvent(event){
 }
 
 function updateEvent(event){
-	delete event.id;
 	$.ajax({
         type: 'PUT',
-        url: '/event/'+event.id,
+        url: '/event/',
         contentType: 'application/json',
         data: JSON.stringify(event),
         success : function(res){

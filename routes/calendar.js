@@ -51,10 +51,17 @@ router.get("/addEventForm", (req, res) => {
     res.render('addEventForm');
 });
 
+router.get("/addEventForm/:month/:year/:day", (req, res) => {
+    var d = req.params.year+"-"+(parseInt(req.params.month) + 1) +"-"+req.params.day;
+    res.render('addEventForm',{date: d});
+});
+
 router.get("/editEventForm/:id", (req, res) => {
     event = db.events.find({_id: req.params.id});
     if(event.length > 0){
-        var d = event.year+"-"+event.month+"-"+event.day;
+        event = event[0]
+        var d = event.year+"-"+(parseInt(event.month) + 1)+"-"+event.day;
+        console.log("Date: "+d);
         res.render('editEventForm',{event: event, date:d});
     }else{
         return res.redirect('/');
@@ -62,7 +69,6 @@ router.get("/editEventForm/:id", (req, res) => {
 });
 
 router.post("/event", (req, res) => {
-    console.log("POST: "+req.body.year+"-"+req.body.month+"-"+req.body.day);
     req.checkBody('year', 'Year is required and must be an integer').notEmpty().isInt();
     req.checkBody('month', 'Month is required and must be an integer').notEmpty().isInt();
     req.checkBody('day', 'Day is required and must be an integer').notEmpty().isInt();
