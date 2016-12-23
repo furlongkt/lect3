@@ -1,5 +1,8 @@
-.jumpTo{
-    float: right;
+.eventDescription{
+	width:100%;
+}
+a:link, a:hover, a:visited, a:active{
+	text-decoration:none;
 }
 select, input[type=text], input[type=date], textarea {
     padding: 8px 20px;
@@ -15,14 +18,9 @@ a#next, a#prev{
 ul {list-style-type: none; margin:0px;}
 
 .btn {
-	-moz-box-shadow:inset 0px 1px 3px 0px #3dc21b;
-	-webkit-box-shadow:inset 0px 1px 3px 0px #3dc21b;
-	box-shadow:inset 0px 1px 3px 0px #3dc21b;
-	background-color:#74B974;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
-	border:1px solid #18ab29;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -31,11 +29,34 @@ ul {list-style-type: none; margin:0px;}
 	font-weight:bold;
 	padding:11px 23px;
 	text-decoration:none;
+	width:100%;
+	margin: 5px 0px;
+}
+
+.btn.green{
+	-moz-box-shadow:inset 0px 1px 3px 0px #3dc21b;
+	-webkit-box-shadow:inset 0px 1px 3px 0px #3dc21b;
+	box-shadow:inset 0px 1px 3px 0px #3dc21b;
+	background-color:#74B974;
+	border:1px solid #18ab29;
 	text-shadow:0px -1px 0px #2f6627;
 }
-.btn:hover {
+.btn.green:hover {
 	background-color:#98CC98;
 }
+
+.btn.red{
+	-moz-box-shadow:inset 0px 1px 3px 0px #dd5454;
+	-webkit-box-shadow:inset 0px 1px 3px 0px #dd5454;
+	box-shadow:inset 0px 1px 3px 0px #dd5454;
+	background-color:#e74c3c;
+	border:1px solid #df3b3b;
+	/*text-shadow:0px -1px 0px #c91919;*/
+}
+.btn.red:hover {
+	background-color:#D66969;
+}
+
 .btn:active {
 	position:relative;
 	top:1px;
@@ -83,9 +104,14 @@ ul {list-style-type: none; margin:0px;}
 	text-align: right;
     padding: 2px;
     width: 100%;
+    color: #333;
 }
 
-.event{
+.day .date-label a:link, a:hover, a:visited, a:active{
+	color: #333;
+}
+
+.event {
 	display: inline-block;
 	margin: 5px 0px;
     width: 100%;
@@ -97,17 +123,27 @@ ul {list-style-type: none; margin:0px;}
     color: #266B6B;
 }
 
+.day a, a:link, a:visited, a:active{
+	color: #266B6B;
+	font-size: medium;
+}
+
+.day a:hover{
+	color: #BDD2D2;
+}
+
 .event > aside{
 	float: right;
 }
 
-.event > aside > a{
+.event > aside  a{
 	padding-right: 3px;
     color: #266B6B;
 }
 
-.event > aside > a:hover, a#next:hover, a#prev:hover{
+.event > aside a:hover, a#next:hover, a#prev:hover{
 	color: #BDD2D2;
+	text-decoration: none
 }
 .month {
 	width: 100%;
@@ -144,5 +180,12 @@ ul {list-style-type: none; margin:0px;}
 	}
 	.weekday-header,.null-value{
 		display: block;
+	}
+	.eventDescription{
+		width:50%;
+	}
+	.btn{
+		width: auto;
+		margin:10px;
 	}
 }

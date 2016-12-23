@@ -76,3 +76,7 @@ function deleteEvent(id,title) {
 function addEvent(event){
 	alert(JSON.stringify(event));
 }
+
+function goBack() {
+    window.history.back();
+}

@@ -10,6 +10,14 @@
 hr {
   border-width: 1px 0 0; }
 
+.nearbyDays {
+  dispaly: inline-flex;
+  margin-top: 20px; }
+
+.nearby-day {
+  border: solid;
+  padding: 70px; }
+
 * {
   box-sizing: border-box; }
 
@@ -19,8 +27,19 @@ body, html {
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 20pt; }
 
-.jumpTo {
-  float: right; }
+#back-button {
+  float: right;
+  text-decoration: none; }
+
+#back-button:visited {
+  color: white;
+  text-decoration: none; }
+
+.eventDescription {
+  width: 100%; }
+
+a:link, a:hover, a:visited, a:active {
+  text-decoration: none; }
 
 select, input[type=text], input[type=date], textarea {
   padding: 8px 20px;
@@ -36,10 +55,7 @@ ul {
   margin: 0px; }
 
 .btn {
-  box-shadow: inset 0px 1px 3px 0px #3dc21b;
-  background-color: #74B974;
   border-radius: 5px;
-  border: 1px solid #18ab29;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -48,10 +64,26 @@ ul {
   font-weight: bold;
   padding: 11px 23px;
   text-decoration: none;
+  width: 100%;
+  margin: 5px 0px; }
+
+.btn.green {
+  box-shadow: inset 0px 1px 3px 0px #3dc21b;
+  background-color: #74B974;
+  border: 1px solid #18ab29;
   text-shadow: 0px -1px 0px #2f6627; }
 
-.btn:hover {
+.btn.green:hover {
   background-color: #98CC98; }
+
+.btn.red {
+  box-shadow: inset 0px 1px 3px 0px #dd5454;
+  background-color: #e74c3c;
+  border: 1px solid #df3b3b;
+  /*text-shadow:0px -1px 0px #c91919;*/ }
+
+.btn.red:hover {
+  background-color: #D66969; }
 
 .btn:active {
   position: relative;
@@ -103,7 +135,11 @@ ul {
 .day .date-label {
   text-align: right;
   padding: 2px;
-  width: 100%; }
+  width: 100%;
+  color: #333; }
+
+.day .date-label a:link, a:hover, a:visited, a:active {
+  color: #333; }
 
 .event {
   display: inline-block;
@@ -116,15 +152,23 @@ ul {
   border: 1px solid #266B6B;
   color: #266B6B; }
 
+.day a, a:link, a:visited, a:active {
+  color: #266B6B;
+  font-size: medium; }
+
+.day a:hover {
+  color: #BDD2D2; }
+
 .event > aside {
   float: right; }
 
-.event > aside > a {
+.event > aside a {
   padding-right: 3px;
   color: #266B6B; }
 
-.event > aside > a:hover, a#next:hover, a#prev:hover {
-  color: #BDD2D2; }
+.event > aside a:hover, a#next:hover, a#prev:hover {
+  color: #BDD2D2;
+  text-decoration: none; }
 
 .month {
   width: 100%;
@@ -157,4 +201,9 @@ ul {
   .dayOfWeek {
     display: none; }
   .weekday-header, .null-value {
-    display: block; } }
+    display: block; }
+  .eventDescription {
+    width: 50%; }
+  .btn {
+    width: auto;
+    margin: 10px; } }

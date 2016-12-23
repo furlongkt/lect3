@@ -1,3 +1,9 @@
+<section class="row" style="margin-bottom: 15px;">
+    <form method="post" action="/addEventForm" id="create-form">
+        <button type="submit" id="myBtn" class="btn green"><i class="fa fa-plus" style="padding-right: 7px;"></i> Create Event</button>
+    </form>
+</section>
+
 <div class="row">
 	<div class="month"> 
 	    <a href="#" id="prev"><aside class="prev">&#10094;</aside></a>
@@ -18,31 +24,17 @@
 	</div>
 
 	<div class="calendar"> 
-		 <!-- for some reason month and year appear up here but not down there -->
-		<script>
-			console.log({{month}});
-			console.log({{year}});
-	  	</script>
-
 	  {{#days}}
 	  		<div class="day {{#unless this }} null-value {{/unless}}">
-
-	  			<!--Get get month and year to show up, if you hover over a link on the monthly view only the day shows up -->
-
-	  			<a href="/view/{{ month}}/{{ year}}/{{this}}">
-
-	  				<script>
-	  				//These yeild nothing right now :-(
-	  				console.log({{month}});
-	  				console.log({{year}});
-	  				</script>
-
-
-			  		<aside class="date-label"><div class="dayOfWeek">{{ getDayOfWeek ../month this ../year }}</div>{{this}}</aside>
+	  			<a href="/view/{{ ../month}}/{{ ../year}}/{{this}}">
+			  		<aside class="date-label">
+			  			<div class="dayOfWeek">
+			  				{{ getDayOfWeek ../month this ../year }}
+			  			</div>
+			  			{{this}}
+			  		</aside>
 			  			{{>eventList events=(getEvents ../month this ../year)}}
-			  		</ul>
 		  		</a>
-		  		
 	  		</div>
 	  {{/days}}
 	  </div>

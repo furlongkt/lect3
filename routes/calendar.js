@@ -38,8 +38,7 @@ function getDaysOfMonth(month,year){
     }
  
 router.get("/event", (req, res) => {
-    //objects = db.events.find();
-    objects = db.events.find({"year": "2016", "month": "11", "day": "19"});
+    objects = db.events.find();
     return res.json({success:true, objects: objects});
 });
 
@@ -105,6 +104,16 @@ router.put("/event", (req, res) => {
         }else{
           res.json({ success: false, error: "Error: Cannot find event with ID: "+ req.body.id });
         }
+    }
+});
+
+router.get("/event/:id", (req, res) => {
+    if(db.events.count({_id:req.params.id})>0){
+        event = db.events.find({_id: req.params.id});
+        return res.render('eventDetails', {event: event});
+    }else{
+        alert("Error: Cannot find event "+req.params.id);
+        return res.redirect('/');
     }
 });
 
