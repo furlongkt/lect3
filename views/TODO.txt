@@ -1,6 +1,5 @@
 TODO
 - Daily View
-	- finish styling (add responsiveness aswell)
 	- figure out nearby days functionality
 		- how to poulate previous two days and upcoming two days on either side of current day
 		- left and right arrows to shift visible dates by 5 each
@@ -21,5 +20,9 @@ TODO
 
 TODO if feelin good
 - Month view
-	- responsive month slides down to bottom
+	- responsive name of month slides down to bottom
+	- responsive arrow buttons slide down to bottom
+
+- Daily view
+	- responsive selected date slides down to bottom
 	- responsive arrow buttons slide down to bottom
